@@ -23,8 +23,7 @@
     <div class="hero__inner">
       <p class="hero__script">Hochzeit</p>
       <h1 class="hero__names">Felix <span>&amp;</span> Sabine</h1>
-      <!-- TODO: echtes Datum & Ort eintragen -->
-      <p class="hero__date">Termin wird noch bekannt gegeben &middot; Ort wird noch bekannt gegeben</p>
+      <p class="hero__date">10. Juli 2027 &middot; Waidhofen an der Ybbs</p>
       <a class="btn" href="#rsvp">Jetzt zusagen</a>
     </div>
     <!-- Farbband aus der Hochzeitspalette -->
@@ -45,18 +44,16 @@
         <div class="details-grid">
           <div class="detail-card">
             <h3>Wann</h3>
-            <!-- TODO: ausfüllen -->
-            <p>Datum &amp; Uhrzeit folgen</p>
+            <p>Samstag, 10. Juli 2027<br />Treffpunkt 12.30 Uhr</p>
           </div>
           <div class="detail-card">
             <h3>Wo</h3>
-            <!-- TODO: ausfüllen -->
-            <p>Ort &amp; Adresse folgen</p>
+            <p>Stadtpfarrkirche Waidhofen/Ybbs<br />Feier: Landhaus Obersteinriegl</p>
+            <a class="link-arrow" href="https://www.landhaus-obersteinriegl.at/" target="_blank" rel="noopener">Zur Location →</a>
           </div>
           <div class="detail-card">
             <h3>Dresscode</h3>
-            <!-- TODO: ausfüllen -->
-            <p>Infos folgen</p>
+            <p>gemütlich, sommerlich, hochzeitlich</p>
           </div>
         </div>
       </div>
@@ -144,20 +141,28 @@
             <input type="email" id="email" name="email" autocomplete="email" required />
           </div>
 
+          <p class="form-note">Bitte füllt das Formular <strong>pro Person einzeln</strong> aus. Begleitpersonen (+1) tragen sich also bitte separat mit einer eigenen Rückmeldung ein.</p>
+
           <fieldset class="field">
-            <legend>Seid ihr dabei? <span class="req">*</span></legend>
+            <legend>Bist du dabei? <span class="req">*</span></legend>
             <label class="radio">
-              <input type="radio" name="attending" value="ja" required /> Wir sagen freudig zu
+              <input type="radio" name="attending" value="ja" required /> Ich bin dabei
             </label>
             <label class="radio">
-              <input type="radio" name="attending" value="nein" /> Wir können leider nicht
+              <input type="radio" name="attending" value="nein" /> Ich kann leider nicht
             </label>
           </fieldset>
 
-          <div class="field">
-            <label for="guests">Anzahl Personen (inkl. dir/euch)</label>
-            <input type="number" id="guests" name="guests" min="0" max="10" step="1" value="1" />
-          </div>
+          <fieldset class="field">
+            <legend>Shuttle-Service</legend>
+            <p class="field__hint">Unsere Location liegt auf einem Hügel mit nur wenigen Parkplätzen direkt davor. Wir empfehlen euch daher herzlich, den Shuttle zu nutzen. Bitte meldet euch hier an:</p>
+            <label class="check">
+              <input type="checkbox" name="shuttle_kirche" value="ja" /> Shuttle Kirche → Location (ca. 15.00 Uhr)
+            </label>
+            <label class="check">
+              <input type="checkbox" name="shuttle_nacht" value="ja" /> Shuttle Location → Waidhofen (in der Nacht)
+            </label>
+          </fieldset>
 
           <div class="field">
             <label for="dietary">Unverträglichkeiten / Allergien</label>

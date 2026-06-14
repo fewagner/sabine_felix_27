@@ -36,8 +36,15 @@ If you change `Code.gs`, redeploy via **Deploy → Manage deployments → edit
 
 ## Adding or removing form fields
 
-Keep three places in sync:
-- the `<input>` in `index.html` (its `name` attribute),
-- the `COLUMNS` array in `Code.gs`.
+The script is keyed by **header name**, not column position, so it self-heals:
 
-The JS sends every form field automatically, so no change is needed there.
+- **Add a field:** just add the `<input>` (with a `name`) in `index.html`. On
+  the next submission the script appends a new column with that name
+  automatically — no `Code.gs` change required.
+- **Remove a field:** delete the `<input>`. The old column stays in the sheet
+  but is left blank for new rows; delete that column by hand whenever you like.
+- `COLUMNS` in `Code.gs` only controls the starting column order for a
+  brand-new sheet, so it's nice to keep it tidy but not required.
+
+> After editing `Code.gs`, redeploy: **Deploy → Manage deployments → edit
+> (pencil) → Version: New version → Deploy**. The URL stays the same.

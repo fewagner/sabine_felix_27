@@ -51,7 +51,8 @@ code as those details are confirmed.
 
 ## How the RSVP data is organized
 
-Each submission is appended as a row in the `RSVPs` tab of your Google Sheet,
-with columns: `timestamp, name, email, attending, guests, dietary, message`.
-From there you can sort, filter, sum the guest count, build a pivot table for
-catering, or export to CSV — all the usual spreadsheet tools.
+Each guest fills the form once (one row per person), appended to the `RSVPs`
+tab of your Google Sheet, with columns: `timestamp, name, email, attending,
+shuttle_kirche, shuttle_nacht, dietary, message`. From there you can sort,
+filter, count attendees, tally each shuttle, build a pivot table for catering,
+or export to CSV — all the usual spreadsheet tools.

@@ -3,28 +3,53 @@
  *
  * It receives a POST from the website and appends one row per RSVP to the
  * bound Google Sheet. See README.md in this folder for deployment steps.
+ *
+ * The sheet is keyed by HEADER NAME, not column position, so adding or
+ * removing form fields later never scrambles existing data: new fields are
+ * appended as new columns automatically, removed fields simply stop being
+ * filled.
  */
 
 // Name of the sheet/tab that RSVPs are written to (created automatically).
 const SHEET_NAME = 'RSVPs';
 
-// Column order written to the sheet. Add fields here AND in the form to extend.
-const COLUMNS = ['timestamp', 'name', 'email', 'attending', 'guests', 'dietary', 'message'];
+// Preferred column order for a brand-new sheet. Any field the form sends that
+// isn't listed here is still saved — it gets appended as a new column.
+const COLUMNS = [
+  'timestamp', 'name', 'email', 'attending',
+  'shuttle_kirche', 'shuttle_nacht', 'dietary', 'message'
+];
 
 function doPost(e) {
   const lock = LockService.getScriptLock();
-  lock.waitLock(30000); // avoid two submissions writing to the same row
+  lock.waitLock(30000); // avoid two submissions writing at once
 
   try {
     const data = JSON.parse(e.postData.contents || '{}');
-    const sheet = getSheet_();
+    data.timestamp = new Date();
 
-    const row = COLUMNS.map(function (key) {
-      if (key === 'timestamp') return new Date();
+    const sheet = getSheet_();
+    let header = sheet.getRange(1, 1, 1, sheet.getLastColumn() || 1).getValues()[0];
+
+    // Make sure every incoming field has a column; add new ones at the end.
+    let headerChanged = false;
+    Object.keys(data).forEach(function (key) {
+      if (header.indexOf(key) === -1) {
+        header.push(key);
+        headerChanged = true;
+      }
+    });
+    if (headerChanged) {
+      sheet.getRange(1, 1, 1, header.length).setValues([header]);
+      sheet.setFrozenRows(1);
+    }
+
+    // Build the row in the exact order of the (possibly extended) header.
+    const row = header.map(function (key) {
       return data[key] !== undefined ? data[key] : '';
     });
-
     sheet.appendRow(row);
+
     return jsonResponse_({ status: 'ok' });
   } catch (err) {
     return jsonResponse_({ status: 'error', message: String(err) });
