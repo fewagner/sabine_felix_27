@@ -42,21 +42,19 @@ body {
   position: relative;
 }
 
-/* Venue line-drawing as a faint background watermark across the page.
- * The drawing is black line-art on white, so we use mix-blend-mode: multiply
- * to drop the white out against the cream page and keep only the lines.
- * Drop the file at inputs/venue-drawing.png (see inputs/README.md). */
+/* Venue line-drawing as a soft background watermark across the page.
+ * Pre-processed to a transparent, theme-tinted PNG (see assets/img/venue-bg.png,
+ * generated from inputs/venue-drawing.png) so it blends on any browser. */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   z-index: 0;
-  background-image: url("../../inputs/venue-drawing.png");
+  background-image: url("../img/venue-bg.png");
   background-repeat: no-repeat;
   background-position: center bottom;
   background-size: min(1100px, 95%);
-  opacity: 0.45;
-  mix-blend-mode: multiply;
+  opacity: 0.5;
   pointer-events: none;
 }
 
@@ -167,6 +165,44 @@ a { color: var(--color-accent-dark); }
   color: var(--color-accent-dark);
 }
 .detail-card p { margin: 0; color: var(--color-muted); }
+
+.link-arrow {
+  display: inline-block;
+  margin-top: 1rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--color-accent-dark);
+  border-bottom: 1px solid var(--color-line);
+  padding-bottom: 2px;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+.link-arrow:hover { color: var(--color-accent); border-color: var(--color-accent); }
+
+/* ===================== Timeline (Ablauf) ===================== */
+.timeline {
+  list-style: none;
+  margin: 2rem auto 0;
+  padding: 0;
+  max-width: 480px;
+}
+.timeline li {
+  display: grid;
+  grid-template-columns: 6.5rem 1fr;
+  gap: 1rem;
+  align-items: baseline;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--color-line);
+}
+.timeline li:last-child { border-bottom: none; }
+.timeline__time {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--color-accent-dark);
+  white-space: nowrap;
+}
+.timeline__event { color: var(--color-ink); }
 
 /* ===================== RSVP form ===================== */
 .rsvp-form { display: flex; flex-direction: column; gap: 1.4rem; margin-top: 1rem; }
