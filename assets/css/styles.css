@@ -1,13 +1,27 @@
-/* ===================== Design tokens ===================== */
+/* ===================== Design tokens =====================
+ * Palette from the couple's mood board:
+ *   Sunflower #E0B451 · Perfect Peach #EE9452 · Softest Pink #D39BA0
+ *   Velvet Blue #777E88 · Sage Green #9CB173 · light blue #B9CDE8
+ *   cream paper background ~ #F3EDDE
+ */
 :root {
-  --color-bg: #fbf8f4;
-  --color-bg-alt: #f1ebe2;
-  --color-ink: #3a352f;
-  --color-muted: #7a7368;
-  --color-accent: #9c7c5b;
-  --color-accent-dark: #7d6244;
-  --color-line: #e0d7c9;
+  --c-sunflower: #E0B451;
+  --c-peach: #EE9452;
+  --c-pink: #D39BA0;
+  --c-blue: #B9CDE8;
+  --c-blue-deep: #777E88; /* Velvet Blue */
+  --c-green: #9CB173;
+
+  --color-bg: #f3edde;        /* cream paper */
+  --color-bg-alt: #ece3d0;    /* slightly deeper cream */
+  --color-ink: #4c473f;       /* warm brown-grey text */
+  --color-muted: #837b6e;
+  --color-accent: #e2934f;    /* peach, for buttons/links */
+  --color-accent-dark: #c9793a;
+  --color-line: #ddd2bd;
+
   --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-script: "Pinyon Script", "Cormorant Garamond", cursive;
   --font-body: "Montserrat", system-ui, sans-serif;
   --maxw: 1040px;
   --radius: 6px;
@@ -25,7 +39,26 @@ body {
   color: var(--color-ink);
   background: var(--color-bg);
   line-height: 1.65;
+  position: relative;
 }
+
+/* Venue line-drawing as a faint background watermark across the page.
+ * Drop the file at inputs/venue-drawing.png (see inputs/README.md). */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background-image: url("../../inputs/venue-drawing.png");
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: min(1100px, 95%);
+  opacity: 0.12;
+  pointer-events: none;
+}
+
+/* Keep all real content above the watermark. */
+header, main, footer { position: relative; z-index: 1; }
 
 h1, h2, h3 { font-family: var(--font-display); font-weight: 500; margin: 0 0 0.4em; }
 
@@ -59,25 +92,26 @@ a { color: var(--color-accent-dark); }
 .hero {
   min-height: 90vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: linear-gradient(rgba(251, 248, 244, 0.55), rgba(251, 248, 244, 0.85)), var(--color-bg-alt);
-  padding: 4rem 1.25rem;
+  padding: 4rem 1.25rem 0;
 }
-.hero__eyebrow {
-  text-transform: uppercase;
-  letter-spacing: 0.35em;
-  font-size: 0.8rem;
+.hero__inner { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.hero__script {
+  font-family: var(--font-script);
+  font-size: clamp(2.6rem, 9vw, 4.5rem);
   color: var(--color-muted);
-  margin: 0 0 1rem;
+  line-height: 1;
+  margin: 0 0 0.2rem;
 }
 .hero__names {
-  font-size: clamp(3rem, 12vw, 6.5rem);
+  font-size: clamp(2.8rem, 11vw, 6rem);
   line-height: 1;
   margin: 0 0 1rem;
 }
-.hero__names span { display: block; font-size: 0.45em; color: var(--color-accent); margin: 0.2em 0; }
+.hero__names span { display: block; font-size: 0.4em; color: var(--color-accent); margin: 0.15em 0; }
 .hero__date {
   text-transform: uppercase;
   letter-spacing: 0.18em;
@@ -86,11 +120,26 @@ a { color: var(--color-accent-dark); }
   margin: 0 0 2.5rem;
 }
 
+/* Colour band of palette swatches */
+.swatches {
+  display: flex;
+  width: 100%;
+  max-width: 720px;
+  margin: 3rem auto 0;
+  gap: 0.6rem;
+  padding-bottom: 2rem;
+}
+.swatches span {
+  flex: 1;
+  height: 14px;
+  border-radius: 3px;
+}
+
 /* ===================== Sections ===================== */
 .section { padding: 5rem 0; }
-.section--alt { background: var(--color-bg-alt); }
+.section--alt { background: rgba(236, 227, 208, 0.85); }
 .section__title { text-align: center; font-size: clamp(2rem, 5vw, 2.8rem); }
-.section__lead { text-align: center; color: var(--color-muted); margin: 0 auto 2.5rem; max-width: 40ch; }
+.section__lead { text-align: center; color: var(--color-muted); margin: 0 auto 2.5rem; max-width: 44ch; }
 
 /* ===================== Details ===================== */
 .details-grid {
@@ -100,7 +149,7 @@ a { color: var(--color-accent-dark); }
   margin-top: 2rem;
 }
 .detail-card {
-  background: var(--color-bg);
+  background: rgba(255, 255, 255, 0.7);
   border: 1px solid var(--color-line);
   border-radius: var(--radius);
   padding: 2rem 1.5rem;
@@ -112,7 +161,7 @@ a { color: var(--color-accent-dark); }
   font-family: var(--font-body);
   font-weight: 500;
   font-size: 0.8rem;
-  color: var(--color-accent);
+  color: var(--color-accent-dark);
 }
 .detail-card p { margin: 0; color: var(--color-muted); }
 
@@ -142,7 +191,7 @@ input[type="text"], input[type="email"], input[type="number"], textarea {
 input:focus, textarea:focus {
   outline: none;
   border-color: var(--color-accent);
-  box-shadow: 0 0 0 3px rgba(156, 124, 91, 0.15);
+  box-shadow: 0 0 0 3px rgba(226, 147, 79, 0.18);
 }
 
 .radio {

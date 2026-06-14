@@ -30,7 +30,7 @@ form.addEventListener("submit", async (event) => {
 
   if (RSVP_ENDPOINT.startsWith("PASTE_")) {
     setStatus(
-      "RSVP backend not configured yet. Add your Apps Script URL in assets/js/rsvp.js.",
+      "Das RSVP-Backend ist noch nicht eingerichtet. Apps-Script-URL in assets/js/rsvp.js eintragen.",
       "error"
     );
     return;
@@ -39,7 +39,7 @@ form.addEventListener("submit", async (event) => {
   const data = Object.fromEntries(new FormData(form).entries());
 
   submitBtn.disabled = true;
-  setStatus("Sending…");
+  setStatus("Wird gesendet …");
 
   try {
     // text/plain keeps this a "simple" CORS request (no preflight),
@@ -56,11 +56,11 @@ form.addEventListener("submit", async (event) => {
     }
 
     form.reset();
-    setStatus("Thank you! Your RSVP has been received. 💛", "success");
+    setStatus("Vielen Dank! Eure Rückmeldung ist bei uns angekommen. 💛", "success");
   } catch (err) {
     console.error(err);
     setStatus(
-      "Sorry, something went wrong sending your RSVP. Please try again, or contact us directly.",
+      "Da ist leider etwas schiefgelaufen. Bitte versucht es noch einmal oder meldet euch direkt bei uns.",
       "error"
     );
   } finally {

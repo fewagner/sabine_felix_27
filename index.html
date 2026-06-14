@@ -1,19 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sabine &amp; Felix — We're getting married!</title>
-  <meta name="description" content="Sabine and Felix are getting married. Find the details and let us know you're coming." />
+  <title>Felix &amp; Sabine — Wir heiraten!</title>
+  <meta name="description" content="Felix und Sabine heiraten. Hier findet ihr alle Infos und könnt uns sagen, dass ihr dabei seid." />
 
-  <!-- Open Graph (nice previews when the link is shared) -->
-  <meta property="og:title" content="Sabine &amp; Felix — We're getting married!" />
-  <meta property="og:description" content="Find the details and RSVP to our wedding." />
+  <!-- Open Graph (schöne Vorschau beim Teilen des Links) -->
+  <meta property="og:title" content="Felix &amp; Sabine — Wir heiraten!" />
+  <meta property="og:description" content="Alle Infos zu unserer Hochzeit und eure Rückmeldung." />
   <meta property="og:type" content="website" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500&family=Pinyon+Script&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
@@ -21,11 +21,19 @@
   <!-- ===================== HERO ===================== -->
   <header class="hero">
     <div class="hero__inner">
-      <p class="hero__eyebrow">We're getting married</p>
-      <h1 class="hero__names">Sabine <span>&amp;</span> Felix</h1>
-      <!-- TODO: update with your real date & location -->
-      <p class="hero__date">Date to be announced &middot; Location to be announced</p>
-      <a class="btn" href="#rsvp">RSVP</a>
+      <p class="hero__script">Hochzeit</p>
+      <h1 class="hero__names">Felix <span>&amp;</span> Sabine</h1>
+      <!-- TODO: echtes Datum & Ort eintragen -->
+      <p class="hero__date">Termin wird noch bekannt gegeben &middot; Ort wird noch bekannt gegeben</p>
+      <a class="btn" href="#rsvp">Jetzt zusagen</a>
+    </div>
+    <!-- Farbband aus der Hochzeitspalette -->
+    <div class="swatches" aria-hidden="true">
+      <span style="background:#E0B451"></span>
+      <span style="background:#EE9452"></span>
+      <span style="background:#D39BA0"></span>
+      <span style="background:#B9CDE8"></span>
+      <span style="background:#9CB173"></span>
     </div>
   </header>
 
@@ -33,22 +41,22 @@
     <!-- ===================== DETAILS ===================== -->
     <section class="section" id="details">
       <div class="container">
-        <h2 class="section__title">The Celebration</h2>
+        <h2 class="section__title">Die Feier</h2>
         <div class="details-grid">
           <div class="detail-card">
-            <h3>When</h3>
-            <!-- TODO: fill in -->
-            <p>Date &amp; time coming soon</p>
+            <h3>Wann</h3>
+            <!-- TODO: ausfüllen -->
+            <p>Datum &amp; Uhrzeit folgen</p>
           </div>
           <div class="detail-card">
-            <h3>Where</h3>
-            <!-- TODO: fill in -->
-            <p>Venue &amp; address coming soon</p>
+            <h3>Wo</h3>
+            <!-- TODO: ausfüllen -->
+            <p>Ort &amp; Adresse folgen</p>
           </div>
           <div class="detail-card">
-            <h3>Dress code</h3>
-            <!-- TODO: fill in -->
-            <p>Details coming soon</p>
+            <h3>Dresscode</h3>
+            <!-- TODO: ausfüllen -->
+            <p>Infos folgen</p>
           </div>
         </div>
       </div>
@@ -57,46 +65,46 @@
     <!-- ===================== RSVP ===================== -->
     <section class="section section--alt" id="rsvp">
       <div class="container container--narrow">
-        <h2 class="section__title">RSVP</h2>
-        <p class="section__lead">Please let us know if you can make it. We can't wait to celebrate with you!</p>
+        <h2 class="section__title">Rückmeldung</h2>
+        <p class="section__lead">Bitte gebt uns Bescheid, ob ihr dabei sein könnt. Wir freuen uns riesig, mit euch zu feiern!</p>
 
         <form id="rsvp-form" class="rsvp-form" novalidate>
           <div class="field">
-            <label for="name">Full name <span class="req">*</span></label>
+            <label for="name">Vor- und Nachname <span class="req">*</span></label>
             <input type="text" id="name" name="name" autocomplete="name" required />
           </div>
 
           <div class="field">
-            <label for="email">Email <span class="req">*</span></label>
+            <label for="email">E-Mail <span class="req">*</span></label>
             <input type="email" id="email" name="email" autocomplete="email" required />
           </div>
 
           <fieldset class="field">
-            <legend>Will you attend? <span class="req">*</span></legend>
+            <legend>Seid ihr dabei? <span class="req">*</span></legend>
             <label class="radio">
-              <input type="radio" name="attending" value="yes" required /> Joyfully accepts
+              <input type="radio" name="attending" value="ja" required /> Wir sagen freudig zu
             </label>
             <label class="radio">
-              <input type="radio" name="attending" value="no" /> Regretfully declines
+              <input type="radio" name="attending" value="nein" /> Wir können leider nicht
             </label>
           </fieldset>
 
           <div class="field">
-            <label for="guests">Number of guests (including yourself)</label>
+            <label for="guests">Anzahl Personen (inkl. dir/euch)</label>
             <input type="number" id="guests" name="guests" min="0" max="10" step="1" value="1" />
           </div>
 
           <div class="field">
-            <label for="dietary">Dietary restrictions / allergies</label>
-            <input type="text" id="dietary" name="dietary" placeholder="e.g. vegetarian, nut allergy" />
+            <label for="dietary">Unverträglichkeiten / Allergien</label>
+            <input type="text" id="dietary" name="dietary" placeholder="z. B. vegetarisch, Nussallergie" />
           </div>
 
           <div class="field">
-            <label for="message">A note for us (optional)</label>
+            <label for="message">Eine Nachricht an uns (optional)</label>
             <textarea id="message" name="message" rows="4"></textarea>
           </div>
 
-          <button type="submit" class="btn" id="rsvp-submit">Send RSVP</button>
+          <button type="submit" class="btn" id="rsvp-submit">Rückmeldung senden</button>
 
           <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
         </form>
@@ -105,7 +113,7 @@
   </main>
 
   <footer class="footer">
-    <p>Sabine &amp; Felix &middot; With love</p>
+    <p>Felix &amp; Sabine &middot; In Liebe</p>
   </footer>
 
   <script src="assets/js/rsvp.js"></script>
