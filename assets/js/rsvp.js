@@ -39,9 +39,10 @@ form.addEventListener("submit", async (event) => {
   const data = Object.fromEntries(new FormData(form).entries());
 
   // Unchecked checkboxes are absent from FormData — record them explicitly
-  // as "nein" so every RSVP has a clear yes/no for each shuttle.
-  data.shuttle_kirche = form.elements.shuttle_kirche.checked ? "ja" : "nein";
-  data.shuttle_nacht = form.elements.shuttle_nacht.checked ? "ja" : "nein";
+  // as "nein" so every RSVP has a clear yes/no for each shuttle. Optional
+  // chaining keeps this safe even if the page markup is briefly stale.
+  data.shuttle_kirche = form.elements.shuttle_kirche?.checked ? "ja" : "nein";
+  data.shuttle_nacht = form.elements.shuttle_nacht?.checked ? "ja" : "nein";
 
   submitBtn.disabled = true;
   setStatus("Wird gesendet …");
