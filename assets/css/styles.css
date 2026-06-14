@@ -43,6 +43,8 @@ body {
 }
 
 /* Venue line-drawing as a faint background watermark across the page.
+ * The drawing is black line-art on white, so we use mix-blend-mode: multiply
+ * to drop the white out against the cream page and keep only the lines.
  * Drop the file at inputs/venue-drawing.png (see inputs/README.md). */
 body::before {
   content: "";
@@ -53,7 +55,8 @@ body::before {
   background-repeat: no-repeat;
   background-position: center bottom;
   background-size: min(1100px, 95%);
-  opacity: 0.12;
+  opacity: 0.45;
+  mix-blend-mode: multiply;
   pointer-events: none;
 }
 
