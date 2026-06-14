@@ -1,0 +1,30 @@
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+npm-debug.log*
+
+# Node (in case tooling is added later)
+node_modules/
+package-lock.json
+yarn.lock
+
+# Environment / secrets — never commit the Apps Script URL or any keys here
+.env
+.env.local
+*.local
+
+# Build output (if a static build step is added later)
+dist/
+build/
+.cache/
