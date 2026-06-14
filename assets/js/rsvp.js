@@ -8,7 +8,7 @@
 
 // 1. Paste your Apps Script web-app URL here after deploying (see apps-script/README.md).
 //    It looks like: https://script.google.com/macros/s/AKfy.../exec
-const RSVP_ENDPOINT = "PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE";
+const RSVP_ENDPOINT = "https://script.google.com/macros/s/AKfycbx2pg7NkmwJIxtcarnsm7kuybH4e13okioTbPg2c2qMSFE5-sORaM30u8PxGmGekzPhpw/exec";
 
 const form = document.getElementById("rsvp-form");
 const statusEl = document.getElementById("form-status");
