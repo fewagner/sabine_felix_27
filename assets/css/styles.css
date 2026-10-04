@@ -185,11 +185,11 @@ a { color: var(--color-accent-dark); }
   list-style: none;
   margin: 2rem auto 0;
   padding: 0;
-  max-width: 480px;
+  max-width: 520px;
 }
 .timeline li {
   display: grid;
-  grid-template-columns: 6.5rem 1fr;
+  grid-template-columns: 8.5rem 1fr;
   gap: 1rem;
   align-items: baseline;
   padding: 1rem 0;
@@ -300,4 +300,34 @@ input:focus, textarea:focus {
   color: var(--color-muted);
   font-size: 0.85rem;
   letter-spacing: 0.05em;
+}
+
+/* ===================== Readability panels ===================== */
+/* Semi-transparent box behind content so text stays legible over the
+ * venue drawing watermark. */
+.section > .container,
+.hero__inner {
+  background: rgba(251, 248, 242, 0.88);
+  border-radius: 12px;
+  padding: 2.5rem 1.5rem;
+  backdrop-filter: blur(2px);
+}
+.hero__inner { flex: 0 1 auto; padding: 2.5rem 2rem; }
+.section > .container { margin-top: 0; }
+
+.detail-card__more {
+  margin-top: 0.8rem !important;
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.notice {
+  background: rgba(255, 255, 255, 0.7);
+  border-left: 3px solid var(--color-accent);
+  border-radius: var(--radius);
+  padding: 0.9rem 1.1rem;
+  margin: 1rem auto 0;
+  max-width: 60ch;
+  font-size: 0.95rem;
+  color: var(--color-ink);
 }
