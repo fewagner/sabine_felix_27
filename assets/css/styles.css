@@ -1,333 +1,481 @@
-/* ===================== Design tokens =====================
- * Palette from the couple's mood board:
- *   Sunflower #E0B451 · Perfect Peach #EE9452 · Softest Pink #D39BA0
- *   Velvet Blue #777E88 · Sage Green #9CB173 · light blue #B9CDE8
- *   cream paper background ~ #F3EDDE
- */
-:root {
-  --c-sunflower: #E0B451;
-  --c-peach: #EE9452;
-  --c-pink: #D39BA0;
-  --c-blue: #B9CDE8;
-  --c-blue-deep: #777E88; /* Velvet Blue */
-  --c-green: #9CB173;
+/* =====================================================================
+ * Hochzeitswebsite Felix & Sabine – Design passend zur Einladung
+ *
+ *  - Schrift Überschriften: Alex Brush (Script), Fließtext: Cormorant Garamond
+ *  - Farben direkt aus den Druckdaten der Einladung gemessen
+ *  - Aquarell-Motive (Wash, Icons, Landhaus) stammen aus der Einladung:
+ *    siehe tools/extract_invitation_art.py
+ * ===================================================================== */
 
-  --color-bg: #f3edde;        /* cream paper */
-  --color-bg-alt: #ece3d0;    /* slightly deeper cream */
-  --color-ink: #4c473f;       /* warm brown-grey text */
-  --color-muted: #837b6e;
-  --color-accent: #e2934f;    /* peach, for buttons/links */
-  --color-accent-dark: #c9793a;
-  --color-line: #ddd2bd;
-
-  --font-display: "Cormorant Garamond", Georgia, serif;
-  --font-script: "Pinyon Script", "Cormorant Garamond", cursive;
-  --font-body: "Montserrat", system-ui, sans-serif;
-  --maxw: 1040px;
-  --radius: 6px;
+/* ===================== Schriften (selbst gehostet) ===================== */
+@font-face {
+  font-family: "Cormorant Garamond"; font-style: normal; font-weight: 500; font-display: swap;
+  src: url("../fonts/cormorant-garamond-500.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Cormorant Garamond"; font-style: italic; font-weight: 500; font-display: swap;
+  src: url("../fonts/cormorant-garamond-500-italic.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Cormorant Garamond"; font-style: normal; font-weight: 600; font-display: swap;
+  src: url("../fonts/cormorant-garamond-600.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Cormorant Garamond"; font-style: normal; font-weight: 700; font-display: swap;
+  src: url("../fonts/cormorant-garamond-700.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Alex Brush"; font-style: normal; font-weight: 400; font-display: swap;
+  src: url("../fonts/alex-brush-400.woff2") format("woff2");
 }
 
-/* ===================== Base ===================== */
-* { box-sizing: border-box; }
+/* ===================== Design-Tokens ===================== */
+:root {
+  --paper: #f6f0e4;          /* cremefarbenes Papier der Einladung */
+  --navy: #3b4355;           /* Fließtext */
+  --slate: #546382;          /* Script-Überschriften */
+  --slate-deep: #4c5b76;     /* Kapitälchen-Labels */
+  --rust: #984f22;           /* Uhrzeiten */
+  --line: #ddd3c0;
+  --glass: rgba(255, 255, 255, 0.6);
 
-html { scroll-behavior: smooth; }
+  /* Die fünf Aquarell-Punkte */
+  --dot-sun: #e7c46c;
+  --dot-peach: #f0a467;
+  --dot-rose: #dfb3b7;
+  --dot-sky: #c3d4eb;
+  --dot-sage: #b7c796;
+
+  --font-script: "Alex Brush", "Snell Roundhand", "Segoe Script", cursive;
+  --font-serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+}
+
+/* ===================== Basis ===================== */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
 body {
   margin: 0;
-  font-family: var(--font-body);
-  font-weight: 300;
-  color: var(--color-ink);
-  background: var(--color-bg);
-  line-height: 1.65;
-  position: relative;
+  background: var(--paper);
+  color: var(--navy);
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: clamp(1.15rem, 1.06rem + 0.4vw, 1.3rem);
+  line-height: 1.55;
+  font-variant-numeric: lining-nums;   /* Ziffern wie auf der Einladung (nicht Mediäval-Ziffern) */
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
-/* Venue line-drawing as a soft background watermark across the page.
- * Pre-processed to a transparent, theme-tinted PNG (see assets/img/venue-bg.png,
- * generated from inputs/venue-drawing.png) so it blends on any browser. */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  background-image: url("../img/venue-bg.png");
-  background-repeat: no-repeat;
-  background-position: center bottom;
-  background-size: min(1100px, 95%);
-  opacity: 0.5;
-  pointer-events: none;
+h1, h2, h3, p, figure, ol, ul { margin: 0; }
+p { margin-bottom: 0.8em; }
+/* keine einzelnen Wörter in der letzten Zeile */
+.section__lead, .fact p, .hotel p, .callout, .footer__note, .field__hint { text-wrap: balance; }
+.dresscode p, .form-note { text-wrap: pretty; }
+p:last-child { margin-bottom: 0; }
+strong { font-weight: 700; }
+img { max-width: 100%; height: auto; }
+::selection { background: var(--dot-peach); color: #fff; }
+
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--slate); outline-offset: 3px; border-radius: 4px; }
+
+.container { max-width: 62rem; margin: 0 auto; padding: 0 1.25rem; }
+.container--narrow { max-width: 40rem; }
+
+/* Kapitälchen-Label (wie „KIRCHLICHE TRAUUNG“ auf der Einladung) */
+.label {
+  font-family: var(--font-serif);
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--slate-deep);
+  margin: 0 0 0.55rem;
 }
 
-/* Keep all real content above the watermark. */
-header, main, footer { position: relative; z-index: 1; }
-
-h1, h2, h3 { font-family: var(--font-display); font-weight: 500; margin: 0 0 0.4em; }
-
-a { color: var(--color-accent-dark); }
-
-.container { max-width: var(--maxw); margin: 0 auto; padding: 0 1.25rem; }
-.container--narrow { max-width: 620px; }
+.textlink {
+  color: var(--slate-deep);
+  text-decoration: underline;
+  text-decoration-color: var(--line);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.2em;
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+.textlink:hover { color: var(--rust); text-decoration-color: var(--rust); }
 
 /* ===================== Buttons ===================== */
 .btn {
   display: inline-block;
-  font-family: var(--font-body);
-  font-weight: 400;
-  letter-spacing: 0.08em;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  font-size: 0.85rem;
-  padding: 0.85rem 2.4rem;
-  border: none;
-  border-radius: var(--radius);
-  background: var(--color-accent);
-  color: #fff;
   text-decoration: none;
+  color: #fff;
+  background: var(--slate);
+  border: 0;
+  border-radius: 999px;
+  padding: 1rem 2.6rem;
   cursor: pointer;
-  transition: background 0.2s ease, transform 0.1s ease;
+  transition: background 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+  box-shadow: 0 10px 24px -14px rgba(59, 67, 85, 0.8);
 }
-.btn:hover { background: var(--color-accent-dark); }
+.btn:hover { background: #3f4b68; }
 .btn:active { transform: translateY(1px); }
 .btn:disabled { opacity: 0.6; cursor: not-allowed; }
 
 /* ===================== Hero ===================== */
 .hero {
-  min-height: 90vh;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: clamp(4rem, 12vh, 7rem) 1.25rem 2.5rem;
   text-align: center;
-  padding: 4rem 1.25rem 0;
 }
-.hero__inner { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+/* Aquarell-Wash oben rechts … */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0; right: 0;
+  z-index: -1;
+  width: clamp(210px, 46vw, 680px);
+  aspect-ratio: 740 / 460;
+  background: url("../img/wash-pfirsich.webp") top right / 100% auto no-repeat;
+  pointer-events: none;
+}
+/* … und unten links, wie auf der Vorderseite der Einladung */
+.hero::after {
+  content: "";
+  position: absolute;
+  bottom: 0; left: 0;
+  z-index: -1;
+  width: clamp(150px, 34vw, 480px);
+  aspect-ratio: 497 / 609;
+  background: url("../img/wash-salbei.webp") bottom left / 100% auto no-repeat;
+  /* löst sich unten sanft auf, statt mitten auf der Seite hart abzuschneiden */
+  -webkit-mask-image: linear-gradient(to bottom, #000 50%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 50%, transparent 100%);
+  pointer-events: none;
+}
+.hero__inner { position: relative; }
 .hero__script {
   font-family: var(--font-script);
-  font-size: clamp(2.6rem, 9vw, 4.5rem);
-  color: var(--color-muted);
-  line-height: 1;
-  margin: 0 0 0.2rem;
+  font-weight: 400;
+  font-size: clamp(3.6rem, 11vw, 7rem);
+  line-height: 1.1;
+  color: var(--slate);
+  margin: 0 0 0.05em;
 }
 .hero__names {
-  font-size: clamp(2.8rem, 11vw, 6rem);
-  line-height: 1;
-  margin: 0 0 1rem;
+  font-weight: 500;
+  font-size: clamp(2.9rem, 8.6vw, 5.8rem);
+  line-height: 1.05;
+  letter-spacing: 0.01em;
+  margin-bottom: 0.45em;
 }
-.hero__names span { display: block; font-size: 0.4em; color: var(--color-accent); margin: 0.15em 0; }
+.hero__names .amp {
+  font-family: var(--font-script);
+  font-weight: 400;
+  color: var(--slate);
+  padding: 0 0.08em;
+}
 .hero__date {
+  font-size: clamp(1rem, 0.9rem + 0.5vw, 1.25rem);
+  font-weight: 700;
+  letter-spacing: 0.26em;
   text-transform: uppercase;
-  letter-spacing: 0.18em;
-  font-size: 0.9rem;
-  color: var(--color-muted);
-  margin: 0 0 2.5rem;
+  color: var(--slate-deep);
+  margin-bottom: 0.25em;
+}
+.hero__place {
+  font-style: italic;
+  font-size: clamp(1.15rem, 1rem + 0.7vw, 1.5rem);
+  margin-bottom: 2rem;
+}
+.hero__art {
+  position: relative;
+  display: block;
+  width: min(640px, 88vw);
+  margin-top: clamp(1.5rem, 4vw, 2.75rem);
 }
 
-/* Colour band of palette swatches */
-.swatches {
-  display: flex;
-  width: 100%;
-  max-width: 720px;
-  margin: 3rem auto 0;
-  gap: 0.6rem;
-  padding-bottom: 2rem;
+/* ===================== Abschnitte ===================== */
+.section { padding: clamp(2.75rem, 6vw, 4.75rem) 0; }
+
+.section__title {
+  font-family: var(--font-script);
+  font-weight: 400;
+  font-size: clamp(3rem, 7.4vw, 4.8rem);
+  line-height: 1.15;
+  text-align: center;
+  color: var(--slate);
+  margin-bottom: 0.1em;
 }
-.swatches span {
-  flex: 1;
-  height: 14px;
-  border-radius: 3px;
+.section__lead {
+  text-align: center;
+  font-style: italic;
+  color: var(--slate-deep);
+  max-width: 36rem;
+  margin: 0 auto 2.2rem;
+}
+.section__lead strong { color: var(--navy); font-style: normal; }
+
+/* Fünf Aquarell-Punkte als Trenner */
+.divider {
+  width: 190px;
+  height: 34px;
+  margin: 0 auto;
+  background: url("../img/punkte.webp") center / contain no-repeat;
 }
 
-/* ===================== Sections ===================== */
-.section { padding: 5rem 0; }
-.section--alt { background: rgba(236, 227, 208, 0.85); }
-.section__title { text-align: center; font-size: clamp(2rem, 5vw, 2.8rem); }
-.section__lead { text-align: center; color: var(--color-muted); margin: 0 auto 2.5rem; max-width: 44ch; }
-
-/* ===================== Details ===================== */
-.details-grid {
+/* ===================== Die Feier ===================== */
+.facts {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
-}
-.detail-card {
-  background: rgba(255, 255, 255, 0.7);
-  border: 1px solid var(--color-line);
-  border-radius: var(--radius);
-  padding: 2rem 1.5rem;
+  grid-template-columns: 1fr;
+  gap: 1.8rem;
+  margin-top: 2.2rem;
   text-align: center;
 }
-.detail-card h3 {
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  font-family: var(--font-body);
-  font-weight: 500;
-  font-size: 0.8rem;
-  color: var(--color-accent-dark);
+.fact { padding: 0.2rem 1.5rem; }
+.fact .aside { font-style: italic; color: var(--slate-deep); }
+@media (min-width: 52rem) {
+  .facts { grid-template-columns: repeat(3, 1fr); gap: 0; }
+  .fact + .fact { border-left: 1px solid var(--line); }
 }
-.detail-card p { margin: 0; color: var(--color-muted); }
 
-.link-arrow {
-  display: inline-block;
-  margin-top: 1rem;
-  font-size: 0.8rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: var(--color-accent-dark);
-  border-bottom: 1px solid var(--color-line);
-  padding-bottom: 2px;
-  transition: color 0.2s ease, border-color 0.2s ease;
+.dresscode {
+  max-width: 38rem;
+  margin: 3.2rem auto 0;
+  padding-top: 2.6rem;
+  border-top: 1px solid var(--line);
+  text-align: center;
 }
-.link-arrow:hover { color: var(--color-accent); border-color: var(--color-accent); }
+.dresscode__motto {
+  font-style: italic;
+  font-size: 1.45em;
+  line-height: 1.25;
+  color: var(--slate);
+  margin-bottom: 1rem;
+}
 
-/* ===================== Timeline (Ablauf) ===================== */
+/* ===================== Anfahrt ===================== */
+.maps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr));
+  gap: 2rem;
+}
+.map-card iframe {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border: 0;
+  border-radius: 18px;
+  box-shadow: 0 0 0 1px var(--line), 0 14px 30px -20px rgba(59, 67, 85, 0.55);
+  filter: saturate(0.85) sepia(0.1);
+}
+.map-card figcaption { text-align: center; margin: 0.9rem 0 0; }
+
+/* ===================== Ablauf ===================== */
 .timeline {
   list-style: none;
-  margin: 2rem auto 0;
   padding: 0;
-  max-width: 520px;
+  max-width: 30rem;
+  margin: 0 auto;
 }
 .timeline li {
   display: grid;
-  grid-template-columns: 8.5rem 1fr;
-  gap: 1rem;
-  align-items: baseline;
-  padding: 1rem 0;
-  border-bottom: 1px solid var(--color-line);
+  grid-template-columns: 5.6rem 1fr;
+  gap: 1.2rem;
+  align-items: center;
+  padding: 0.8rem 0;
 }
-.timeline li:last-child { border-bottom: none; }
-.timeline__time {
-  font-family: var(--font-display);
-  font-size: 1.3rem;
-  color: var(--color-accent-dark);
-  white-space: nowrap;
-}
-.timeline__event { color: var(--color-ink); }
-
-/* ===================== Maps (Anfahrt) ===================== */
-.maps-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
-}
-.map-card { margin: 0; }
-.map-card iframe {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  border: 1px solid var(--color-line);
-  border-radius: var(--radius);
-  display: block;
-}
-.map-card figcaption {
-  margin-top: 0.6rem;
-  text-align: center;
-  font-size: 0.85rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--color-muted);
-}
-
-/* ===================== RSVP form ===================== */
-.rsvp-form { display: flex; flex-direction: column; gap: 1.4rem; margin-top: 1rem; }
-
-.field { display: flex; flex-direction: column; gap: 0.4rem; border: none; margin: 0; padding: 0; }
-.field label, .field legend {
-  font-size: 0.8rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--color-muted);
-  padding: 0;
-}
-.req { color: var(--color-accent); }
-
-input[type="text"], input[type="email"], input[type="number"], textarea {
-  font-family: var(--font-body);
-  font-size: 1rem;
-  padding: 0.75rem 0.9rem;
-  border: 1px solid var(--color-line);
-  border-radius: var(--radius);
-  background: #fff;
-  color: var(--color-ink);
-  width: 100%;
-}
-input:focus, textarea:focus {
-  outline: none;
-  border-color: var(--color-accent);
-  box-shadow: 0 0 0 3px rgba(226, 147, 79, 0.18);
-}
-
-.radio, .check {
+.timeline__icon {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
-  text-transform: none;
-  letter-spacing: normal;
-  font-size: 1rem;
-  color: var(--color-ink);
-  margin-top: 0.5rem;
+  justify-content: center;
+  height: 4.6rem;
 }
-.radio input, .check input { flex: none; }
+.timeline__icon img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+}
+.timeline__time,
+.timeline__event { display: block; }
+.timeline__time {
+  color: var(--rust);
+  font-weight: 600;
+  font-size: 1.3em;
+  line-height: 1.25;
+}
+.timeline__event { line-height: 1.3; }
+
+/* ===================== Unterkünfte & Shuttle ===================== */
+.callout {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 1.2rem 1.6rem;
+  text-align: center;
+  background: var(--glass);
+  border-radius: 18px;
+  box-shadow: 0 0 0 1px var(--line);
+}
+.hotels {
+  list-style: none;
+  padding: 0;
+  margin-top: 2.2rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.8rem;
+  text-align: center;
+}
+.hotel { padding: 0.2rem 1.5rem; }
+.hotel .textlink { display: inline-block; margin-top: 0.2rem; }
+@media (min-width: 52rem) {
+  .hotels { grid-template-columns: repeat(3, 1fr); gap: 0; }
+  .hotel + .hotel { border-left: 1px solid var(--line); }
+}
+.shuttle__icon {
+  display: block;
+  width: 5.2rem;
+  height: auto;
+  margin: 0 auto 0.4rem;
+}
+
+/* ===================== Rückmeldeformular ===================== */
+.rsvp-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+.field > label:not(.radio):not(.check),
+.field > legend {
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--slate-deep);
+  padding: 0;
+}
+.req { color: var(--rust); }
+
+input[type="text"],
+input[type="email"],
+textarea {
+  font: inherit;
+  width: 100%;
+  padding: 0.8rem 1rem;
+  color: var(--navy);
+  background: rgba(255, 255, 255, 0.75);
+  border: 1.5px solid var(--line);
+  border-radius: 12px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+textarea { resize: vertical; }
+::placeholder { color: #858b9a; opacity: 1; }
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+  outline: none;
+  background: #fff;
+  border-color: var(--slate);
+  box-shadow: 0 0 0 4px rgba(84, 99, 130, 0.16);
+}
+
+.radio,
+.check {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  margin-top: 0.3rem;
+  font-size: 1.05rem;
+  font-weight: 500;
+  letter-spacing: normal;
+  text-transform: none;
+  color: var(--navy);
+  cursor: pointer;
+}
+.radio input,
+.check input {
+  flex: none;
+  width: 1.15rem;
+  height: 1.15rem;
+  margin: 0.3em 0 0;
+  accent-color: var(--slate);
+}
 
 .form-note {
-  background: rgba(255, 255, 255, 0.6);
-  border: 1px solid var(--color-line);
-  border-radius: var(--radius);
-  padding: 0.85rem 1rem;
   margin: 0;
-  font-size: 0.92rem;
-  color: var(--color-muted);
+  padding: 0.95rem 1.2rem;
+  font-size: 1rem;
+  color: var(--slate-deep);
+  background: var(--glass);
+  border-radius: 14px;
+  box-shadow: 0 0 0 1px var(--line);
 }
-.form-note strong { color: var(--color-ink); }
+.form-note strong { color: var(--navy); }
 
 .field__hint {
-  margin: 0.2rem 0 0.2rem;
-  font-size: 0.9rem;
-  line-height: 1.5;
-  text-transform: none;
-  letter-spacing: normal;
-  color: var(--color-muted);
+  margin: 0 0 0.2rem;
+  font-size: 1rem;
+  font-style: italic;
+  line-height: 1.45;
+  color: var(--slate-deep);
 }
 
-.form-status { text-align: center; font-size: 0.95rem; min-height: 1.4em; margin: 0; }
-.form-status.is-error { color: #b3402f; }
-.form-status.is-success { color: #4a7c43; }
+.rsvp-form .btn { align-self: center; min-width: 15rem; margin-top: 0.4rem; }
+
+.form-status { text-align: center; font-size: 1.05rem; min-height: 1.5em; margin: 0; }
+.form-status.is-error { color: #a63a2a; }
+.form-status.is-success { color: #3f6b3a; }
 
 /* ===================== Footer ===================== */
 .footer {
+  padding-top: 1.25rem;
   text-align: center;
-  padding: 2.5rem 1.25rem;
-  color: var(--color-muted);
-  font-size: 0.85rem;
-  letter-spacing: 0.05em;
 }
-
-/* ===================== Readability panels ===================== */
-/* Semi-transparent box behind content so text stays legible over the
- * venue drawing watermark. */
-.section > .container,
-.hero__inner {
-  background: rgba(251, 248, 242, 0.88);
-  border-radius: 12px;
-  padding: 2.5rem 1.5rem;
-  backdrop-filter: blur(2px);
+.footer__text { max-width: 36rem; margin: 0 auto; padding: 0 1.25rem; }
+.footer__note { font-style: italic; color: var(--slate-deep); margin-bottom: 1.4rem; }
+.footer__names {
+  font-family: var(--font-script);
+  font-size: clamp(2.6rem, 6.5vw, 3.6rem);
+  line-height: 1.15;
+  color: var(--slate);
+  margin: 0;
 }
-.hero__inner { flex: 0 1 auto; padding: 2.5rem 2rem; }
-.section > .container { margin-top: 0; }
-
-.detail-card__more {
-  margin-top: 0.8rem !important;
+.footer__love {
   font-size: 0.9rem;
-  line-height: 1.55;
+  font-weight: 700;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--slate-deep);
 }
-
-.notice {
-  background: rgba(255, 255, 255, 0.7);
-  border-left: 3px solid var(--color-accent);
-  border-radius: var(--radius);
-  padding: 0.9rem 1.1rem;
-  margin: 1rem auto 0;
-  max-width: 60ch;
-  font-size: 0.95rem;
-  color: var(--color-ink);
+/* Aquarell-Band am Seitenende (Motiv der Kontakte-Karte) */
+.footer::after {
+  content: "";
+  display: block;
+  /* Höhe = Höhe des (skalierten) Bildes 1702 x 394, damit oben nichts abgeschnitten wird */
+  height: max(23.15vw, 176px);
+  margin-top: 1.5rem;
+  background: url("../img/wash-band.webp") center bottom / max(100%, 760px) auto no-repeat;
 }

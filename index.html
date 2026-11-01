@@ -4,35 +4,33 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Felix &amp; Sabine — Wir heiraten!</title>
-  <meta name="description" content="Felix und Sabine heiraten. Hier findet ihr alle Infos und könnt uns sagen, dass ihr dabei seid." />
+  <meta name="description" content="Felix und Sabine heiraten am 10. Juli 2027. Hier findet ihr alle Infos und könnt uns sagen, dass ihr dabei seid." />
+  <meta name="theme-color" content="#f6f0e4" />
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
 
   <!-- Open Graph (schöne Vorschau beim Teilen des Links) -->
   <meta property="og:title" content="Felix &amp; Sabine — Wir heiraten!" />
-  <meta property="og:description" content="Alle Infos zu unserer Hochzeit und eure Rückmeldung." />
+  <meta property="og:description" content="Alle Infos zu unserer Hochzeit am 10. Juli 2027 und eure Rückmeldung." />
   <meta property="og:type" content="website" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/styles.css?v=4" />
+  <!-- Schriften liegen im Repo (assets/fonts), es werden keine Anfragen an Google gesendet -->
+  <link rel="preload" href="assets/fonts/alex-brush-400.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="assets/fonts/cormorant-garamond-500.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="assets/css/styles.css?v=5" />
 </head>
 <body>
 
   <!-- ===================== HERO ===================== -->
   <header class="hero">
     <div class="hero__inner">
-      <h1 class="hero__names">Felix <span>&amp;</span> Sabine</h1>
-      <p class="hero__date">10. Juli 2027 &middot; Ybbsitz &amp; Waidhofen an der Ybbs</p>
+      <p class="hero__script">wir heiraten!</p>
+      <h1 class="hero__names">Felix <span class="amp">&amp;</span> Sabine</h1>
+      <p class="hero__date">Samstag, 10. Juli 2027</p>
+      <p class="hero__place">Pfarrkirche Ybbsitz &middot; Landhaus Obersteinriegl</p>
       <a class="btn" href="#rsvp">Jetzt zusagen</a>
     </div>
-    <!-- Farbband aus der Hochzeitspalette -->
-    <div class="swatches" aria-hidden="true">
-      <span style="background:#E0B451"></span>
-      <span style="background:#EE9452"></span>
-      <span style="background:#D39BA0"></span>
-      <span style="background:#B9CDE8"></span>
-      <span style="background:#9CB173"></span>
-    </div>
+    <img class="hero__art" src="assets/img/landhaus-aquarell.webp" width="820" height="429"
+         alt="Aquarell des Landhauses Obersteinriegl" decoding="async" />
   </header>
 
   <main>
@@ -40,138 +38,184 @@
     <section class="section" id="details">
       <div class="container">
         <h2 class="section__title">Die Feier</h2>
-        <div class="details-grid">
-          <div class="detail-card">
-            <h3>Wann</h3>
-            <p>Samstag, 10. Juli 2027<br />Treffpunkt 12.00 Uhr</p>
+
+        <div class="facts">
+          <div class="fact">
+            <h3 class="label">Wann</h3>
+            <p><strong>Samstag, 10. Juli 2027</strong></p>
+            <p>Treffpunkt um 12.00 Uhr</p>
           </div>
-          <div class="detail-card">
-            <h3>Wo</h3>
-            <p>Trauung: Pfarrkirche Ybbsitz<br />Feier: Landhaus Obersteinriegl</p>
-            <a class="link-arrow" href="https://www.landhaus-obersteinriegl.at/" target="_blank" rel="noopener">Zur Location →</a>
+          <div class="fact">
+            <h3 class="label">Kirchliche Trauung</h3>
+            <p><strong>Pfarrkirche Ybbsitz</strong></p>
+            <p class="aside">(Sabines Heimatort)</p>
           </div>
-          <div class="detail-card">
-            <h3>Dresscode</h3>
-            <p>gemütlich, sommerlich, hochzeitlich</p>
-            <p class="detail-card__more">Wir freuen uns über sommerliche, gerne farbenfrohe und festliche Outfits. Kleider, Jumpsuits oder elegante Zweiteiler sind ebenso willkommen wie Anzüge – bei sommerlichen Temperaturen natürlich gerne auch in leichten Stoffen und hellen Farben. Eine Krawatte ist kein Muss.</p>
-            <p class="detail-card__more">Farblich gibt es keine Vorgaben: Tragt, was euch gefällt und worin ihr euch wohlfühlt. Wer nach Inspiration sucht, kann sich gerne an den Farben unserer Website orientieren.</p>
+          <div class="fact">
+            <h3 class="label">Landhaus Obersteinriegl</h3>
+            <p>Kleingschnaidt 8<br />3334 Gaflenz</p>
+            <p><a class="textlink" href="https://www.landhaus-obersteinriegl.at/" target="_blank" rel="noopener">landhaus-obersteinriegl.at</a></p>
           </div>
+        </div>
+
+        <div class="dresscode">
+          <h3 class="label">Dresscode</h3>
+          <p class="dresscode__motto">gemütlich, sommerlich, hochzeitlich</p>
+          <p>Wir freuen uns über sommerliche, gerne farbenfrohe und festliche Outfits. Kleider, Jumpsuits oder elegante Zweiteiler sind ebenso willkommen wie Anzüge – bei sommerlichen Temperaturen natürlich gerne auch in leichten Stoffen und hellen Farben. Eine Krawatte ist kein Muss.</p>
+          <p>Farblich gibt es keine Vorgaben: Tragt, was euch gefällt und worin ihr euch wohlfühlt. Wer nach Inspiration sucht, kann sich gerne an den Farben unserer Website orientieren.</p>
         </div>
       </div>
     </section>
 
+    <div class="divider" aria-hidden="true"></div>
+
     <!-- ===================== ANFAHRT ===================== -->
-    <section class="section section--alt" id="anfahrt">
+    <section class="section" id="anfahrt">
       <div class="container">
         <h2 class="section__title">Anfahrt</h2>
-        <p class="section__lead">Hier findet ihr die Kirche in Ybbsitz und unsere Location auf der Karte.</p>
+        <p class="section__lead">Hier findet ihr die Kirche in Ybbsitz und unser Landhaus auf der Karte.</p>
         <div class="maps-grid">
           <figure class="map-card">
             <iframe
               title="Karte: Pfarrkirche Ybbsitz"
-              src="https://www.google.com/maps?q=Pfarrkirche+Ybbsitz&output=embed"
+              src="https://www.google.com/maps?q=Pfarrkirche+Ybbsitz,+Nieder%C3%B6sterreich&output=embed"
               loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
-            <figcaption>Pfarrkirche Ybbsitz</figcaption>
+            <figcaption class="label">Pfarrkirche Ybbsitz</figcaption>
           </figure>
           <figure class="map-card">
             <iframe
               title="Karte: Landhaus Obersteinriegl"
-              src="https://www.google.com/maps?q=Landhaus+Obersteinriegl&output=embed"
+              src="https://www.google.com/maps?q=Landhaus+Obersteinriegl,+Kleingschnaidt+8,+3334+Gaflenz&output=embed"
               loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
-            <figcaption>Landhaus Obersteinriegl</figcaption>
+            <figcaption class="label">Landhaus Obersteinriegl</figcaption>
           </figure>
         </div>
       </div>
     </section>
 
+    <div class="divider" aria-hidden="true"></div>
+
     <!-- ===================== ABLAUF ===================== -->
     <section class="section" id="ablauf">
       <div class="container container--narrow">
-        <h2 class="section__title">Ablauf des Tages</h2>
-        <p class="section__lead">So feiern wir unseren großen Tag mit euch — von der Kirche bis spät in die Nacht.</p>
+        <h2 class="section__title">Ablauf</h2>
+        <p class="section__lead">Von der Kirche bis spät in die Nacht.</p>
 
         <ol class="timeline">
           <li>
-            <span class="timeline__time">12.00 Uhr</span>
-            <span class="timeline__event">Treffpunkt vor der Kirche in Ybbsitz</span>
+            <span class="timeline__icon"><img src="assets/img/icons/kirche.webp" width="146" height="147" alt="" loading="lazy" /></span>
+            <span class="timeline__text">
+              <span class="timeline__time">12.00 Uhr</span>
+              <span class="timeline__event">Treffpunkt vor der Pfarrkirche Ybbsitz</span>
+            </span>
           </li>
           <li>
-            <span class="timeline__time">12.30 Uhr</span>
-            <span class="timeline__event">Trauung in der Pfarrkirche Ybbsitz</span>
+            <span class="timeline__icon"><img src="assets/img/icons/ringe.webp" width="122" height="97" alt="" loading="lazy" /></span>
+            <span class="timeline__text">
+              <span class="timeline__time">12.30 Uhr</span>
+              <span class="timeline__event">Kirchliche Trauung</span>
+            </span>
           </li>
           <li>
-            <span class="timeline__time">13.30 Uhr</span>
-            <span class="timeline__event">Agape am Marktplatz Ybbsitz</span>
+            <span class="timeline__icon"><img src="assets/img/icons/sekt.webp" width="121" height="144" alt="" loading="lazy" /></span>
+            <span class="timeline__text">
+              <span class="timeline__time">13.30 Uhr</span>
+              <span class="timeline__event">Agape am Marktplatz Ybbsitz</span>
+            </span>
           </li>
           <li>
-            <span class="timeline__time">14.30 Uhr</span>
-            <span class="timeline__event">Zeit zum selbständigen Einchecken im Hotel</span>
+            <span class="timeline__icon"><img src="assets/img/icons/schluessel.webp" width="107" height="133" alt="" loading="lazy" /></span>
+            <span class="timeline__text">
+              <span class="timeline__time">14.30 Uhr</span>
+              <span class="timeline__event">Zeit zum selbständigen Einchecken im Hotel</span>
+            </span>
           </li>
           <li>
-            <span class="timeline__time">15.00 Uhr</span>
-            <span class="timeline__event">Shuttle Ybbsitz – Waidhofen – Obersteinriegl</span>
+            <span class="timeline__icon"><img src="assets/img/icons/shuttle.webp" width="138" height="117" alt="" loading="lazy" /></span>
+            <span class="timeline__text">
+              <span class="timeline__time">15.00 Uhr</span>
+              <span class="timeline__event">Shuttle Ybbsitz – Waidhofen – Obersteinriegl</span>
+            </span>
           </li>
           <li>
-            <span class="timeline__time">16.00 Uhr</span>
-            <span class="timeline__event">Landhaus Obersteinriegl: Gruppenfotos &amp; Glückwünsche</span>
+            <span class="timeline__icon"><img src="assets/img/icons/kamera.webp" width="128" height="109" alt="" loading="lazy" /></span>
+            <span class="timeline__text">
+              <span class="timeline__time">16.00 Uhr</span>
+              <span class="timeline__event">Gruppenfotos, Kaffee &amp; Kuchen</span>
+            </span>
           </li>
           <li>
-            <span class="timeline__time">19.00 Uhr</span>
-            <span class="timeline__event">Abendessen</span>
+            <span class="timeline__icon"><img src="assets/img/icons/abendessen.webp" width="135" height="95" alt="" loading="lazy" /></span>
+            <span class="timeline__text">
+              <span class="timeline__time">18.00 Uhr</span>
+              <span class="timeline__event">Abendessen</span>
+            </span>
           </li>
           <li>
-            <span class="timeline__time">21.00 Uhr</span>
-            <span class="timeline__event">Party — wir tanzen bis in die Nacht</span>
+            <span class="timeline__icon"><img src="assets/img/icons/party.webp" width="123" height="135" alt="" loading="lazy" /></span>
+            <span class="timeline__text">
+              <span class="timeline__time">20.00 Uhr</span>
+              <span class="timeline__event">Party</span>
+            </span>
           </li>
           <li>
-            <span class="timeline__time">ab Mitternacht</span>
-            <span class="timeline__event">Shuttles zurück nach Waidhofen</span>
+            <span class="timeline__icon"><img src="assets/img/icons/mond.webp" width="129" height="125" alt="" loading="lazy" /></span>
+            <span class="timeline__text">
+              <span class="timeline__time">ab 24.00 Uhr</span>
+              <span class="timeline__event">Shuttles zurück nach Waidhofen</span>
+            </span>
           </li>
         </ol>
       </div>
     </section>
 
+    <div class="divider" aria-hidden="true"></div>
+
     <!-- ===================== UNTERKÜNFTE ===================== -->
-    <section class="section section--alt" id="unterkuenfte">
+    <section class="section" id="unterkuenfte">
       <div class="container">
         <h2 class="section__title">Unterkünfte</h2>
-        <p class="section__lead">Für alle, die von weiter anreisen: Hier sind ein paar schöne Unterkünfte in der Nähe.</p>
-        <p class="notice"><strong>Bitte reserviert euer Hotel in Waidhofen selbstständig</strong> und gebt uns bekannt, <strong>ob und wo</strong> ihr reserviert habt (im Rückmeldeformular unten). Bucht am besten rechtzeitig.</p>
+        <p class="section__lead">Für alle, die von weiter anreisen: Hier sind ein paar schöne Unterkünfte in Waidhofen an der Ybbs.</p>
+        <p class="callout"><strong>Bitte reserviert euer Hotel in Waidhofen selbstständig</strong> und gebt uns bekannt, <strong>ob und wo</strong> ihr reserviert habt (im Rückmeldeformular unten). Bucht am besten rechtzeitig.</p>
 
-        <div class="details-grid">
-          <div class="detail-card">
-            <h3>Schloss an der Eisenstraße</h3>
+        <ul class="hotels">
+          <li class="hotel">
+            <h3 class="label">Schloss an der Eisenstraße</h3>
             <p>Stilvoll übernachten in Waidhofen an der Ybbs.</p>
-            <a class="link-arrow" href="https://www.schlosseisenstrasse.at/de/" target="_blank" rel="noopener">Zur Website →</a>
-          </div>
-          <div class="detail-card">
-            <h3>Hotel Leopold</h3>
+            <a class="textlink" href="https://www.schlosseisenstrasse.at/de/" target="_blank" rel="noopener">Zur Website</a>
+          </li>
+          <li class="hotel">
+            <h3 class="label">Hotel Leopold</h3>
             <p>Gemütliches Hotel in Waidhofen an der Ybbs.</p>
-            <a class="link-arrow" href="https://leopold-ybbs.at/willkommen" target="_blank" rel="noopener">Zur Website →</a>
-          </div>
-          <div class="detail-card">
-            <h3>Hotel Moshammer</h3>
+            <a class="textlink" href="https://leopold-ybbs.at/willkommen" target="_blank" rel="noopener">Zur Website</a>
+          </li>
+          <li class="hotel">
+            <h3 class="label">Hotel Moshammer</h3>
             <p>Zimmer &amp; Suiten in Waidhofen an der Ybbs.</p>
-            <a class="link-arrow" href="https://hotel-moshammer.at/zimmer-suiten/" target="_blank" rel="noopener">Zur Website →</a>
-          </div>
-        </div>
+            <a class="textlink" href="https://hotel-moshammer.at/zimmer-suiten/" target="_blank" rel="noopener">Zur Website</a>
+          </li>
+        </ul>
       </div>
     </section>
+
+    <div class="divider" aria-hidden="true"></div>
 
     <!-- ===================== SHUTTLE ===================== -->
     <section class="section" id="shuttle">
       <div class="container container--narrow">
-        <h2 class="section__title">Shuttle-Service</h2>
+        <img class="shuttle__icon" src="assets/img/icons/shuttle.webp" width="138" height="117" alt="" loading="lazy" />
+        <h2 class="section__title">Shuttle</h2>
         <p class="section__lead">Unsere Abendlocation liegt auf einem Hügel, vor Ort gibt es nur wenige Parkplätze.</p>
-        <p class="notice">Wir organisieren einen <strong>Shuttle von der Kirche bzw. Agape und von den Hotels zur Abendlocation – und nach Mitternacht wieder zurück nach Waidhofen</strong>. Damit wir die Fahrten planen können, gebt uns bitte im Rückmeldeformular an, <strong>ob ihr den Shuttle nutzen möchtet und in welchem Hotel ihr reserviert habt</strong>.</p>
+        <p class="callout">Wir organisieren einen <strong>Shuttle von der Kirche bzw. Agape und von den Hotels zur Abendlocation – und nach Mitternacht wieder zurück nach Waidhofen</strong>. Damit wir die Fahrten planen können, gebt uns bitte im Rückmeldeformular an, <strong>ob ihr den Shuttle nutzen möchtet und in welchem Hotel ihr reserviert habt</strong>.</p>
       </div>
     </section>
+
+    <div class="divider" aria-hidden="true"></div>
 
     <!-- ===================== RSVP ===================== -->
     <section class="section" id="rsvp">
       <div class="container container--narrow">
         <h2 class="section__title">Rückmeldung</h2>
-        <p class="section__lead">Bitte gebt uns Bescheid, ob ihr dabei sein könnt. Wir freuen uns riesig, mit euch zu feiern!</p>
+        <p class="section__lead">Bitte gebt uns bis zum <strong>31.03.2027</strong> Bescheid, ob ihr dabei seid! Wir freuen uns riesig, mit euch zu feiern.</p>
 
         <form id="rsvp-form" class="rsvp-form" novalidate>
           <div class="field">
@@ -200,16 +244,16 @@
             <legend>Shuttle-Service</legend>
             <p class="field__hint">Wir empfehlen euch herzlich den Shuttle, da vor der Location nur wenige Parkplätze zur Verfügung stehen. Bitte meldet euch hier an:</p>
             <label class="check">
-              <input type="checkbox" name="shuttle_kirche" value="ja" /> Hinfahrt: Shuttle Ybbsitz / Hotels → Obersteinriegl (ca. 15.00 Uhr)
+              <input type="checkbox" name="shuttle_kirche" value="ja" /> Hinfahrt: Shuttle von Ybbsitz &amp; den Hotels zum Landhaus (ca. 15.00 Uhr)
             </label>
             <label class="check">
-              <input type="checkbox" name="shuttle_nacht" value="ja" /> Rückfahrt: Shuttle Obersteinriegl → Waidhofen (ab Mitternacht)
+              <input type="checkbox" name="shuttle_nacht" value="ja" /> Rückfahrt: Shuttle vom Landhaus nach Waidhofen (ab Mitternacht)
             </label>
           </fieldset>
 
           <div class="field">
             <label for="hotel">Hotel in Waidhofen (falls reserviert)</label>
-            <input type="text" id="hotel" name="hotel" placeholder="Name des Hotels – bitte selbstständig reservieren" />
+            <input type="text" id="hotel" name="hotel" placeholder="Name des Hotels" />
           </div>
 
           <div class="field">
@@ -231,9 +275,13 @@
   </main>
 
   <footer class="footer">
-    <p>Felix &amp; Sabine &middot; In Liebe</p>
+    <div class="footer__text">
+      <p class="footer__note">Fragen oder Ideen? Teilt sie gerne mit uns oder unseren Trauzeuginnen und Trauzeugen – ihre Kontaktdaten findet ihr auf eurer Einladung.</p>
+      <p class="footer__names">Felix &amp; Sabine</p>
+      <p class="footer__love">In Liebe</p>
+    </div>
   </footer>
 
-  <script src="assets/js/rsvp.js?v=4"></script>
+  <script src="assets/js/rsvp.js?v=5"></script>
 </body>
 </html>
