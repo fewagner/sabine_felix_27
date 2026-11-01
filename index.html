@@ -16,7 +16,7 @@
   <!-- Schriften liegen im Repo (assets/fonts), es werden keine Anfragen an Google gesendet -->
   <link rel="preload" href="assets/fonts/alex-brush-400.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="assets/fonts/cormorant-garamond-500.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="assets/css/styles.css?v=7" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=8" />
 </head>
 <body>
 
@@ -319,6 +319,8 @@
         <p class="section__lead">Bitte gebt uns bis zum <strong>31.03.2027</strong> Bescheid, ob ihr dabei seid! Wir freuen uns riesig, mit euch zu feiern.</p>
 
         <form id="rsvp-form" class="rsvp-form" novalidate>
+          <p class="form-note">Bitte füllt das Formular <strong>für jede Person einzeln</strong> aus – auch Paare melden sich bitte nicht gemeinsam in einem Formular zurück, sondern jede Person für sich. Zusätzliche Begleitpersonen (+1) sind nicht eingeplant; bei Fragen meldet euch gerne bei uns.</p>
+
           <div class="field">
             <label for="name">Vor- und Nachname <span class="req">*</span></label>
             <input type="text" id="name" name="name" autocomplete="name" required />
@@ -328,8 +330,6 @@
             <label for="email">E-Mail <span class="req">*</span></label>
             <input type="email" id="email" name="email" autocomplete="email" required />
           </div>
-
-          <p class="form-note">Bitte füllt das Formular <strong>pro Person einzeln</strong> aus – jede eingeladene Person meldet sich selbst zurück. Zusätzliche Begleitpersonen (+1) sind nicht eingeplant; bei Fragen meldet euch gerne bei uns.</p>
 
           <fieldset class="field">
             <legend>Bist du dabei? <span class="req">*</span></legend>

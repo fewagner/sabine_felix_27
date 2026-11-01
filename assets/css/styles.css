@@ -507,8 +507,8 @@ textarea:focus {
 .form-note {
   margin: 0;
   padding: 0.95rem 1.2rem;
-  font-size: 1rem;
-  color: var(--slate-deep);
+  font-size: 1.1rem;
+  color: var(--navy);
   background: var(--glass);
   border-radius: 14px;
   box-shadow: 0 0 0 1px var(--line);
