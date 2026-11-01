@@ -16,7 +16,7 @@
   <!-- Schriften liegen im Repo (assets/fonts), es werden keine Anfragen an Google gesendet -->
   <link rel="preload" href="assets/fonts/alex-brush-400.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="assets/fonts/cormorant-garamond-500.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="assets/css/styles.css?v=5" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=6" />
 </head>
 <body>
 
@@ -39,29 +39,31 @@
       <div class="container">
         <h2 class="section__title">Die Feier</h2>
 
-        <div class="facts">
-          <div class="fact">
-            <h3 class="label">Wann</h3>
-            <p><strong>Samstag, 10. Juli 2027</strong></p>
-            <p>Treffpunkt um 12.00 Uhr</p>
+        <div class="feier">
+          <div class="facts">
+            <div class="fact">
+              <h3 class="label">Wann</h3>
+              <p><strong>Samstag, 10. Juli 2027</strong></p>
+              <p>Treffpunkt um 12.30 Uhr<br />Beginn der Trauung um 13.00 Uhr</p>
+            </div>
+            <div class="fact">
+              <h3 class="label">Kirchliche Trauung</h3>
+              <p><strong>Pfarrkirche Ybbsitz</strong></p>
+              <p class="aside">(Sabines Heimatort)</p>
+            </div>
+            <div class="fact">
+              <h3 class="label">Landhaus Obersteinriegl</h3>
+              <p>Kleingschnaidt 8<br />3334 Gaflenz</p>
+              <p><a class="textlink" href="https://www.landhaus-obersteinriegl.at/" target="_blank" rel="noopener">landhaus-obersteinriegl.at</a></p>
+            </div>
           </div>
-          <div class="fact">
-            <h3 class="label">Kirchliche Trauung</h3>
-            <p><strong>Pfarrkirche Ybbsitz</strong></p>
-            <p class="aside">(Sabines Heimatort)</p>
-          </div>
-          <div class="fact">
-            <h3 class="label">Landhaus Obersteinriegl</h3>
-            <p>Kleingschnaidt 8<br />3334 Gaflenz</p>
-            <p><a class="textlink" href="https://www.landhaus-obersteinriegl.at/" target="_blank" rel="noopener">landhaus-obersteinriegl.at</a></p>
-          </div>
-        </div>
 
-        <div class="dresscode">
-          <h3 class="label">Dresscode</h3>
-          <p class="dresscode__motto">gemütlich, sommerlich, hochzeitlich</p>
-          <p>Wir freuen uns über sommerliche, gerne farbenfrohe und festliche Outfits. Kleider, Jumpsuits oder elegante Zweiteiler sind ebenso willkommen wie Anzüge – bei sommerlichen Temperaturen natürlich gerne auch in leichten Stoffen und hellen Farben. Eine Krawatte ist kein Muss.</p>
-          <p>Farblich gibt es keine Vorgaben: Tragt, was euch gefällt und worin ihr euch wohlfühlt. Wer nach Inspiration sucht, kann sich gerne an den Farben unserer Website orientieren.</p>
+          <div class="dresscode">
+            <h3 class="label">Dresscode</h3>
+            <p class="dresscode__motto">gemütlich, sommerlich, hochzeitlich</p>
+            <p>Wir freuen uns über sommerliche, gerne farbenfrohe und festliche Outfits. Kleider, Jumpsuits oder elegante Zweiteiler sind ebenso willkommen wie Anzüge – bei sommerlichen Temperaturen natürlich gerne auch in leichten Stoffen und hellen Farben. Eine Krawatte ist kein Muss.</p>
+            <p>Farblich gibt es keine Vorgaben: Tragt, was euch gefällt und worin ihr euch wohlfühlt. Wer nach Inspiration sucht, kann sich gerne an den Farben unserer Website orientieren.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -98,35 +100,35 @@
     <section class="section" id="ablauf">
       <div class="container container--narrow">
         <h2 class="section__title">Ablauf</h2>
-        <p class="section__lead">Von der Kirche bis spät in die Nacht.</p>
+        <p class="section__lead">Vom Einchecken am Vormittag bis spät in die Nacht.</p>
 
         <ol class="timeline">
           <li>
+            <span class="timeline__icon"><img src="assets/img/icons/schluessel.webp" width="107" height="133" alt="" loading="lazy" /></span>
+            <span class="timeline__text">
+              <span class="timeline__time">ab 10.00 Uhr</span>
+              <span class="timeline__event">Einchecken in den Apartments in Ybbsitz</span>
+            </span>
+          </li>
+          <li>
             <span class="timeline__icon"><img src="assets/img/icons/kirche.webp" width="146" height="147" alt="" loading="lazy" /></span>
             <span class="timeline__text">
-              <span class="timeline__time">12.00 Uhr</span>
+              <span class="timeline__time">12.30 Uhr</span>
               <span class="timeline__event">Treffpunkt vor der Pfarrkirche Ybbsitz</span>
             </span>
           </li>
           <li>
             <span class="timeline__icon"><img src="assets/img/icons/ringe.webp" width="122" height="97" alt="" loading="lazy" /></span>
             <span class="timeline__text">
-              <span class="timeline__time">12.30 Uhr</span>
+              <span class="timeline__time">13.00 Uhr</span>
               <span class="timeline__event">Kirchliche Trauung</span>
             </span>
           </li>
           <li>
             <span class="timeline__icon"><img src="assets/img/icons/sekt.webp" width="121" height="144" alt="" loading="lazy" /></span>
             <span class="timeline__text">
-              <span class="timeline__time">13.30 Uhr</span>
+              <span class="timeline__time">14.00 Uhr</span>
               <span class="timeline__event">Agape am Marktplatz Ybbsitz</span>
-            </span>
-          </li>
-          <li>
-            <span class="timeline__icon"><img src="assets/img/icons/schluessel.webp" width="107" height="133" alt="" loading="lazy" /></span>
-            <span class="timeline__text">
-              <span class="timeline__time">14.30 Uhr</span>
-              <span class="timeline__event">Zeit zum selbständigen Einchecken im Hotel</span>
             </span>
           </li>
           <li>
@@ -161,7 +163,7 @@
             <span class="timeline__icon"><img src="assets/img/icons/mond.webp" width="129" height="125" alt="" loading="lazy" /></span>
             <span class="timeline__text">
               <span class="timeline__time">ab 24.00 Uhr</span>
-              <span class="timeline__event">Shuttles zurück nach Waidhofen</span>
+              <span class="timeline__event">Shuttles zurück nach Ybbsitz und Waidhofen</span>
             </span>
           </li>
         </ol>
@@ -170,30 +172,13 @@
 
     <div class="divider" aria-hidden="true"></div>
 
-    <!-- ===================== UNTERKÜNFTE ===================== -->
-    <section class="section" id="unterkuenfte">
-      <div class="container">
-        <h2 class="section__title">Unterkünfte</h2>
-        <p class="section__lead">Für alle, die von weiter anreisen: Hier sind ein paar schöne Unterkünfte in Waidhofen an der Ybbs.</p>
-        <p class="callout"><strong>Bitte reserviert euer Hotel in Waidhofen selbstständig</strong> und gebt uns bekannt, <strong>ob und wo</strong> ihr reserviert habt (im Rückmeldeformular unten). Bucht am besten rechtzeitig.</p>
-
-        <ul class="hotels">
-          <li class="hotel">
-            <h3 class="label">Schloss an der Eisenstraße</h3>
-            <p>Stilvoll übernachten in Waidhofen an der Ybbs.</p>
-            <a class="textlink" href="https://www.schlosseisenstrasse.at/de/" target="_blank" rel="noopener">Zur Website</a>
-          </li>
-          <li class="hotel">
-            <h3 class="label">Hotel Leopold</h3>
-            <p>Gemütliches Hotel in Waidhofen an der Ybbs.</p>
-            <a class="textlink" href="https://leopold-ybbs.at/willkommen" target="_blank" rel="noopener">Zur Website</a>
-          </li>
-          <li class="hotel">
-            <h3 class="label">Hotel Moshammer</h3>
-            <p>Zimmer &amp; Suiten in Waidhofen an der Ybbs.</p>
-            <a class="textlink" href="https://hotel-moshammer.at/zimmer-suiten/" target="_blank" rel="noopener">Zur Website</a>
-          </li>
-        </ul>
+    <!-- ===================== ÜBERNACHTUNG ===================== -->
+    <section class="section" id="uebernachtung">
+      <div class="container container--narrow">
+        <img class="section__icon" src="assets/img/icons/schluessel.webp" width="107" height="133" alt="" loading="lazy" />
+        <h2 class="section__title">Übernachtung</h2>
+        <p class="section__lead">Wir haben Apartments in Ybbsitz für euch reserviert – damit ihr nach dem Feiern nur noch ins Bett fallen müsst.</p>
+        <p class="callout">Jedes Apartment bietet <strong>Platz für bis zu 6 Personen</strong>. Sprecht euch gerne untereinander ab und teilt euch ein Apartment – ob mit Familie, Freunden oder Menschen, die ihr spätestens nach der Party sehr gut kennt. <strong>Einchecken</strong> könnt ihr bereits <strong>ab 10.00 Uhr</strong>. Wer in den Apartments übernachten möchte (und mit wem), trägt das bitte im <a class="textlink" href="#rsvp">Rückmeldeformular</a> ein.</p>
       </div>
     </section>
 
@@ -202,10 +187,98 @@
     <!-- ===================== SHUTTLE ===================== -->
     <section class="section" id="shuttle">
       <div class="container container--narrow">
-        <img class="shuttle__icon" src="assets/img/icons/shuttle.webp" width="138" height="117" alt="" loading="lazy" />
+        <img class="section__icon" src="assets/img/icons/shuttle.webp" width="138" height="117" alt="" loading="lazy" />
         <h2 class="section__title">Shuttle</h2>
         <p class="section__lead">Unsere Abendlocation liegt auf einem Hügel, vor Ort gibt es nur wenige Parkplätze.</p>
-        <p class="callout">Wir organisieren einen <strong>Shuttle von der Kirche bzw. Agape und von den Hotels zur Abendlocation – und nach Mitternacht wieder zurück nach Waidhofen</strong>. Damit wir die Fahrten planen können, gebt uns bitte im Rückmeldeformular an, <strong>ob ihr den Shuttle nutzen möchtet und in welchem Hotel ihr reserviert habt</strong>.</p>
+        <p class="callout">Wir organisieren deshalb einen <strong>Shuttle von Ybbsitz zur Abendlocation in Gaflenz – und ab Mitternacht wieder zurück</strong>. Damit wir die Fahrten planen können, gebt uns bitte im <a class="textlink" href="#rsvp">Rückmeldeformular</a> an, <strong>ob ihr den Shuttle nutzen möchtet</strong>.</p>
+      </div>
+    </section>
+
+    <div class="divider" aria-hidden="true"></div>
+
+    <!-- ===================== FAQ ===================== -->
+    <section class="section" id="faq">
+      <div class="container container--narrow">
+        <h2 class="section__title">Häufige Fragen</h2>
+        <p class="section__lead">Alles, was ihr schon immer über unsere Hochzeit wissen wolltet – und ein bisschen mehr.</p>
+
+        <div class="faq">
+          <details class="faq__item">
+            <summary>Bis wann muss ich mich zurückmelden?</summary>
+            <div class="faq__answer">
+              <p>Bitte gebt uns bis spätestens <strong>31. März 2027</strong> Bescheid – am einfachsten über das <a class="textlink" href="#rsvp">Formular weiter unten</a>. Und nein, das ist kein Aprilscherz: Der kommt erst einen Tag später.</p>
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary>Darf ich eine Begleitung (+1) mitbringen?</summary>
+            <div class="faq__answer">
+              <p>Unsere Einladung richtet sich an die Personen, die darauf persönlich angesprochen sind – zusätzliche +1 haben wir deshalb nicht eingeplant. Das ist nichts Persönliches gegen eure Begleitung, die ist bestimmt großartig! Falls ihr Fragen dazu habt, meldet euch bitte einfach direkt bei uns.</p>
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary>Sind Kinder willkommen?</summary>
+            <div class="faq__answer">
+              <p>In der Kirche und bei der Agape: unbedingt! Dort sind lautes Lachen und kleine Zwischenrufe ausdrücklich erlaubt. Der Abend und die Party in Gaflenz sind dagegen ohne Kinder geplant.</p>
+              <p>Sollte das wegen Betreuungspflichten – gerade bei Babys und Kleinkindern – zu Komplikationen führen, meldet euch bitte bei uns. Dann überlegen wir gemeinsam, was möglich ist.</p>
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary>Wie komme ich nach Ybbsitz?</summary>
+            <div class="faq__answer">
+              <p><strong>Mit dem Auto:</strong> Ybbsitz liegt im Mostviertel (Niederösterreich), von Wien aus sind es rund 150 km. Der Weg führt über die A1 (Westautobahn) und dann über Landstraßen durch das Mostviertel – am einfachsten gebt ihr „Pfarrkirche Ybbsitz“ ins Navi ein.</p>
+              <p><strong>Mit Bahn und Bus:</strong> Eine direkte Verbindung gibt es nicht. Fahrt mit dem Zug bis Waidhofen an der Ybbs (aus Richtung Wien oder Linz meist mit Umstieg in Amstetten) und von dort mit dem Bus in gut 20 Minuten weiter nach Ybbsitz. Aktuelle Verbindungen findet ihr bei <a class="textlink" href="https://fahrplan.oebb.at/" target="_blank" rel="noopener">ÖBB Scotty</a> oder <a class="textlink" href="https://anachb.vor.at/" target="_blank" rel="noopener">VOR AnachB</a>. Weil Busse auf dem Land am Wochenende oft seltener fahren, schaut bitte frühzeitig in den Fahrplan.</p>
+              <p>Und: Schließt euch gerne zu Fahrgemeinschaften zusammen – das spart Nerven, Sprit und sorgt für gute Gespräche.</p>
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary>Wie komme ich am besten von A nach B?</summary>
+            <div class="faq__answer">
+              <p>Unser Tipp: Reist schon am Vormittag nach Ybbsitz an – <strong>Einchecken in den Apartments ist ab 10.00 Uhr möglich</strong> – und stellt euer Auto dort ab. Parkplätze gibt es in Ybbsitz genug.</p>
+              <p>Ab dann könnt ihr es den ganzen Tag stehen lassen: Kirche und Agape sind in Ybbsitz, um 15.00 Uhr bringt euch der Shuttle zur Location nach Gaflenz, und ab Mitternacht fährt er euch wieder zurück. So müsst ihr euch weder um Parkplätze noch um die Heimfahrt sorgen – und auf ein Glas Wein (oder drei) muss auch niemand verzichten.</p>
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary>Kann ich direkt mit dem Auto zur Location nach Gaflenz fahren?</summary>
+            <div class="faq__answer">
+              <p>Die Location liegt auf einem Hügel, und Parkplätze wachsen dort leider nicht auf Bäumen: Sie sind rar. Deshalb empfehlen wir euch von Herzen den Shuttle. Wenn ihr trotzdem direkt mit dem Auto nach Gaflenz kommen möchtet, meldet euch bitte vorher bei uns.</p>
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary>Gibt es etwas zu essen?</summary>
+            <div class="faq__answer">
+              <p>Auf jeden Fall! Bei der Agape und später in Gaflenz (Kaffee &amp; Kuchen, 16.00 Uhr) gibt es Snacks, und um 18.00 Uhr wird das Abendessen serviert.</p>
+              <p>Zwischen Frühstück und Agape liegen trotzdem ein paar Stunden – wir empfehlen deshalb ein leichtes Mittagessen vor der Kirche oder ein großes, spätes Frühstück. Ein knurrender Magen ist beim Ja-Wort nämlich ein denkbar schlechter Zwischenrufer.</p>
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary>Darf ich selbst fotografieren?</summary>
+            <div class="faq__answer">
+              <p>Wir haben ein professionelles Foto- und Videoteam, das uns bis zum Abendessen begleitet. Bitte lasst deshalb während der Trauung Handy und Kamera in der Tasche – so haben die Profis freie Sicht, und ihr erlebt den großen Moment mit euren eigenen Augen statt durch ein Display. Danach dürft ihr natürlich nach Herzenslust knipsen.</p>
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary>Wir möchten ein Spiel oder eine Show für den Abend vorbereiten – geht das?</summary>
+            <div class="faq__answer">
+              <p>Das freut uns sehr! Bitte sprecht eure Idee vorab mit unseren Trauzeuginnen und Trauzeugen ab – sie koordinieren das Programm am Abend, ihre Kontaktdaten findet ihr auf eurer Einladung.</p>
+              <p>Bitte startet Spiele oder Shows nicht ungeplant, damit der Abend leicht und rund bleibt. Überraschungen lieben wir – aber bitte angemeldete.</p>
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary>Was wünscht ihr euch als Geschenk?</summary>
+            <div class="faq__answer">
+              <p>Euer Kommen ist unser größtes Geschenk! Wenn ihr uns darüber hinaus eine Freude machen möchtet, unterstützt gerne unsere Hochzeitsreise mit einem finanziellen Beitrag. Toaster und Kerzenständer haben wir ziemlich sicher schon genug – in den Koffern ist dafür noch jede Menge Platz.</p>
+            </div>
+          </details>
+        </div>
       </div>
     </section>
 
@@ -228,7 +301,7 @@
             <input type="email" id="email" name="email" autocomplete="email" required />
           </div>
 
-          <p class="form-note">Bitte füllt das Formular <strong>pro Person einzeln</strong> aus. Begleitpersonen (+1) tragen sich also bitte separat mit einer eigenen Rückmeldung ein.</p>
+          <p class="form-note">Bitte füllt das Formular <strong>pro Person einzeln</strong> aus – jede eingeladene Person meldet sich selbst zurück. Zusätzliche Begleitpersonen (+1) sind nicht eingeplant; bei Fragen meldet euch gerne bei uns.</p>
 
           <fieldset class="field">
             <legend>Bist du dabei? <span class="req">*</span></legend>
@@ -244,16 +317,24 @@
             <legend>Shuttle-Service</legend>
             <p class="field__hint">Wir empfehlen euch herzlich den Shuttle, da vor der Location nur wenige Parkplätze zur Verfügung stehen. Bitte meldet euch hier an:</p>
             <label class="check">
-              <input type="checkbox" name="shuttle_kirche" value="ja" /> Hinfahrt: Shuttle von Ybbsitz &amp; den Hotels zum Landhaus (ca. 15.00 Uhr)
+              <input type="checkbox" name="shuttle_kirche" value="ja" /> Hinfahrt: Shuttle von Ybbsitz zum Landhaus (15.00 Uhr)
             </label>
             <label class="check">
-              <input type="checkbox" name="shuttle_nacht" value="ja" /> Rückfahrt: Shuttle vom Landhaus nach Waidhofen (ab Mitternacht)
+              <input type="checkbox" name="shuttle_nacht" value="ja" /> Rückfahrt: Shuttle vom Landhaus zurück nach Ybbsitz (ab Mitternacht)
+            </label>
+          </fieldset>
+
+          <fieldset class="field">
+            <legend>Übernachtung in Ybbsitz</legend>
+            <p class="field__hint">Wir haben Apartments für jeweils bis zu 6 Personen reserviert. Sprecht euch gerne untereinander ab!</p>
+            <label class="check">
+              <input type="checkbox" name="uebernachtung" value="ja" /> Ich möchte in einem der Apartments übernachten
             </label>
           </fieldset>
 
           <div class="field">
-            <label for="hotel">Hotel in Waidhofen (falls reserviert)</label>
-            <input type="text" id="hotel" name="hotel" placeholder="Name des Hotels" />
+            <label for="apartment_mit">Mit wem möchtest du dir ein Apartment teilen?</label>
+            <input type="text" id="apartment_mit" name="apartment_mit" placeholder="z. B. mit Anna, Max und Lisa" />
           </div>
 
           <div class="field">
@@ -282,6 +363,6 @@
     </div>
   </footer>
 
-  <script src="assets/js/rsvp.js?v=5"></script>
+  <script src="assets/js/rsvp.js?v=6"></script>
 </body>
 </html>

@@ -78,13 +78,14 @@ Preview locally: `python3 -m http.server 8000` and open <http://localhost:8000>.
 
 ## Editing content
 
-All texts are plain German HTML in `index.html` (schedule, hotels, dress code, …).
+All texts are plain German HTML in `index.html` (schedule, accommodation, FAQ, dress code, …).
 The schedule and details should always match the printed invitation.
 
 ## How the RSVP data is organized
 
 Each guest fills the form once (one row per person), appended to the `RSVPs`
 tab of your Google Sheet, with columns: `timestamp, name, email, attending,
-shuttle_kirche, shuttle_nacht, hotel, dietary, message`. From there you can sort,
+shuttle_kirche, shuttle_nacht, uebernachtung, apartment_mit, dietary, message`
+(an older `hotel` column may still exist from earlier test entries – it is simply left empty now). From there you can sort,
 filter, count attendees, tally each shuttle, build a pivot table for catering,
 or export to CSV — all the usual spreadsheet tools.

@@ -72,15 +72,15 @@ body {
 h1, h2, h3, p, figure, ol, ul { margin: 0; }
 p { margin-bottom: 0.8em; }
 /* keine einzelnen Wörter in der letzten Zeile */
-.section__lead, .fact p, .hotel p, .callout, .footer__note, .field__hint { text-wrap: balance; }
-.dresscode p, .form-note { text-wrap: pretty; }
+.section__lead, .fact p, .callout, .footer__note, .field__hint { text-wrap: balance; }
+.dresscode p, .form-note, .faq__answer p { text-wrap: pretty; }
 p:last-child { margin-bottom: 0; }
 strong { font-weight: 700; }
 img { max-width: 100%; height: auto; }
 ::selection { background: var(--dot-peach); color: #fff; }
 
 a { color: inherit; }
-:focus-visible { outline: 3px solid var(--slate); outline-offset: 3px; border-radius: 4px; }
+:focus-visible { outline: 3px solid var(--navy); outline-offset: 3px; border-radius: 4px; }
 
 .container { max-width: 62rem; margin: 0 auto; padding: 0 1.25rem; }
 .container--narrow { max-width: 40rem; }
@@ -115,16 +115,16 @@ a { color: inherit; }
   letter-spacing: 0.2em;
   text-transform: uppercase;
   text-decoration: none;
-  color: #fff;
-  background: var(--slate);
+  color: var(--navy);
+  background: var(--dot-peach);          /* „Perfect Peach“ aus der Farbpalette */
   border: 0;
   border-radius: 999px;
   padding: 1rem 2.6rem;
   cursor: pointer;
   transition: background 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
-  box-shadow: 0 10px 24px -14px rgba(59, 67, 85, 0.8);
+  box-shadow: 0 10px 24px -14px rgba(152, 79, 34, 0.85);
 }
-.btn:hover { background: #3f4b68; }
+.btn:hover { background: #f5b283; transform: translateY(-1px); }
 .btn:active { transform: translateY(1px); }
 .btn:disabled { opacity: 0.6; cursor: not-allowed; }
 
@@ -239,26 +239,29 @@ a { color: inherit; }
 }
 
 /* ===================== Die Feier ===================== */
-.facts {
+.feier {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.8rem;
-  margin-top: 2.2rem;
+  gap: 2.4rem;
+  margin-top: 2.4rem;
   text-align: center;
 }
-.fact { padding: 0.2rem 1.5rem; }
-.fact .aside { font-style: italic; color: var(--slate-deep); }
-@media (min-width: 52rem) {
-  .facts { grid-template-columns: repeat(3, 1fr); gap: 0; }
-  .fact + .fact { border-left: 1px solid var(--line); }
+/* Wann / Trauung / Landhaus untereinander gestapelt */
+.facts { display: flex; flex-direction: column; justify-content: center; }
+.fact { padding: 0.2rem 1rem; }
+.fact + .fact {
+  margin-top: 1.6rem;
+  padding-top: 1.6rem;
+  border-top: 1px solid var(--line);
 }
+.fact .aside { font-style: italic; color: var(--slate-deep); }
 
 .dresscode {
-  max-width: 38rem;
-  margin: 3.2rem auto 0;
-  padding-top: 2.6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 2.2rem;
   border-top: 1px solid var(--line);
-  text-align: center;
 }
 .dresscode__motto {
   font-style: italic;
@@ -266,6 +269,15 @@ a { color: inherit; }
   line-height: 1.25;
   color: var(--slate);
   margin-bottom: 1rem;
+}
+@media (min-width: 52rem) {
+  .feier { grid-template-columns: 1fr 1.2fr; gap: 0; }
+  .facts { padding-right: 3rem; }
+  .dresscode {
+    padding: 0.4rem 0 0.4rem 3rem;
+    border-top: 0;
+    border-left: 1px solid var(--line);
+  }
 }
 
 /* ===================== Anfahrt ===================== */
@@ -331,27 +343,63 @@ a { color: inherit; }
   border-radius: 18px;
   box-shadow: 0 0 0 1px var(--line);
 }
-.hotels {
-  list-style: none;
-  padding: 0;
-  margin-top: 2.2rem;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.8rem;
-  text-align: center;
-}
-.hotel { padding: 0.2rem 1.5rem; }
-.hotel .textlink { display: inline-block; margin-top: 0.2rem; }
-@media (min-width: 52rem) {
-  .hotels { grid-template-columns: repeat(3, 1fr); gap: 0; }
-  .hotel + .hotel { border-left: 1px solid var(--line); }
-}
-.shuttle__icon {
+.section__icon {
   display: block;
-  width: 5.2rem;
-  height: auto;
-  margin: 0 auto 0.4rem;
+  width: auto;
+  height: 4.6rem;
+  max-width: 100%;
+  margin: 0 auto 0.5rem;
 }
+.callout .textlink { color: var(--navy); }
+
+/* ===================== FAQ ===================== */
+.faq { margin-top: 2rem; border-top: 1px solid var(--line); }
+.faq__item { border-bottom: 1px solid var(--line); }
+/* jeder Punkt bekommt reihum einen der fünf Aquarell-Punkte */
+.faq__item:nth-child(5n+1) { --faq-dot: var(--dot-sun); }
+.faq__item:nth-child(5n+2) { --faq-dot: var(--dot-peach); }
+.faq__item:nth-child(5n+3) { --faq-dot: var(--dot-rose); }
+.faq__item:nth-child(5n+4) { --faq-dot: var(--dot-sky); }
+.faq__item:nth-child(5n+5) { --faq-dot: var(--dot-sage); }
+.faq__item summary {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 1.1rem 0.25rem;
+  cursor: pointer;
+  list-style: none;
+  font-weight: 700;
+  font-size: 1.1em;
+  line-height: 1.3;
+  color: var(--navy);
+  transition: color 0.2s ease;
+}
+.faq__item summary::-webkit-details-marker { display: none; }
+.faq__item summary::before {
+  content: "";
+  flex: none;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.55), transparent 55%), var(--faq-dot, var(--dot-sun));
+}
+.faq__item summary::after {
+  /* Plus aus zwei Balken – wird beim Öffnen zum „×“ */
+  content: "";
+  flex: none;
+  width: 1rem;
+  height: 1rem;
+  margin-left: auto;
+  background:
+    linear-gradient(var(--rust), var(--rust)) center / 100% 2px no-repeat,
+    linear-gradient(var(--rust), var(--rust)) center / 2px 100% no-repeat;
+  transition: transform 0.25s ease;
+}
+.faq__item[open] summary::after { transform: rotate(45deg); }
+.faq__item summary:hover { color: var(--rust); }
+.faq__answer { padding: 0 0.25rem 1.3rem 1.9rem; }
+.faq__answer p { margin-bottom: 0.75em; }
+.faq__answer p:last-child { margin-bottom: 0; }
 
 /* ===================== Rückmeldeformular ===================== */
 .rsvp-form {
@@ -398,8 +446,8 @@ input[type="email"]:focus,
 textarea:focus {
   outline: none;
   background: #fff;
-  border-color: var(--slate);
-  box-shadow: 0 0 0 4px rgba(84, 99, 130, 0.16);
+  border-color: #e0914f;
+  box-shadow: 0 0 0 4px rgba(240, 164, 103, 0.3);
 }
 
 .radio,
@@ -421,7 +469,7 @@ textarea:focus {
   width: 1.15rem;
   height: 1.15rem;
   margin: 0.3em 0 0;
-  accent-color: var(--slate);
+  accent-color: var(--rust);
 }
 
 .form-note {

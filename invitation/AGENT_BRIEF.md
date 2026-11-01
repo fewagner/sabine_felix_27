@@ -1,5 +1,9 @@
 # Brief for the next agent: wedding invitation (print, PowerPoint)
 
+> **Status note (Nov 2026):** the invitation is finished and the plan has changed since this brief was written
+> (check-in from 10:00 in apartments in Ybbsitz, Treffpunkt 12:30, Trauung 13:00, Agape 14:00, no hotel
+> recommendations any more). The schedule and facts below are **outdated** – `index.html` is the current source of truth.
+
 ## Goal
 Design a postal wedding invitation for **Felix & Sabine**, delivered as an **editable PowerPoint (.pptx)** the couple can open and change themselves. All guests speak **German only**, so all card text is German. Keep this brief and your messages to the couple in whatever language they use (they write English to the agent, German on the card).
 
