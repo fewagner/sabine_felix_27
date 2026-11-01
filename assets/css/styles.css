@@ -254,7 +254,7 @@ a { color: inherit; }
   padding-top: 1.6rem;
   border-top: 1px solid var(--line);
 }
-.fact .aside { font-style: italic; color: var(--slate-deep); }
+.aside { font-style: italic; color: var(--slate-deep); }
 
 .dresscode {
   display: flex;
@@ -351,6 +351,38 @@ a { color: inherit; }
   margin: 0 auto 0.5rem;
 }
 .callout .textlink { color: var(--navy); }
+
+/* Übernachtung: Eckdaten + Reservierungskontakt */
+.stay {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.4rem;
+  margin-top: 1.8rem;
+  text-align: center;
+}
+.stay__item + .stay__item { border-top: 1px solid var(--line); padding-top: 1.4rem; }
+.stay__note {
+  max-width: 34rem;
+  margin: 1.8rem auto 0;
+  text-align: center;
+  text-wrap: balance;
+}
+.contact {
+  max-width: 28rem;
+  margin: 2rem auto 0;
+  padding: 1.4rem 1.6rem 1.5rem;
+  text-align: center;
+  background: var(--glass);
+  border-radius: 18px;
+  box-shadow: 0 0 0 1px var(--line);
+}
+.contact p { margin-bottom: 0.35em; }
+.contact .aside { margin-top: 0.9rem; font-size: 0.95em; }
+@media (min-width: 40rem) {
+  .stay { grid-template-columns: repeat(3, 1fr); gap: 0; }
+  .stay__item { padding: 0.2rem 0.8rem; }
+  .stay__item + .stay__item { border-top: 0; padding-top: 0.2rem; border-left: 1px solid var(--line); }
+}
 
 /* ===================== FAQ ===================== */
 .faq { margin-top: 2rem; border-top: 1px solid var(--line); }
